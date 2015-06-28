@@ -13,7 +13,9 @@ sed -ri 's/UsePAM yes/#UsePAM yes/g' /etc/ssh/sshd_config
 
 service ssh restart
 
-# Download a newer kernel
+# Install aufs
+apt-get -y update
+apt-get -y install linux-image-extra-$(uname -r)
 
 # Install packages for compiling CRIU
 apt-get install -y build-essential  asciidoc
