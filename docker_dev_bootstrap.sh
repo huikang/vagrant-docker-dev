@@ -15,3 +15,9 @@ service ssh restart
 
 # Download a newer kernel
 
+# Install packages for compiling CRIU
+apt-get install -y build-essential  asciidoc
+apt-get install -y protobuf-c-compiler libprotobuf-c0-dev \
+    libbsd-dev protobuf-compiler python-ipaddr pkg-config \
+    protobuf-compiler libprotobuf-dev libprotoc-dev libaio-dev
+

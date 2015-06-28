@@ -15,7 +15,21 @@ Vagrant.configure("2") do |config|
     end
 
     config.vm.synced_folder "tools", "/root/tools"
-
   end
+
+  config.vm.define "docker_test_1" do |docker_test_1|
+    docker_test_1.vm.provision :shell, path: "docker_dev_bootstrap.sh"
+    docker_test_1.vm.box = "ubuntu/trusty64"
+    docker_test_1.vm.host_name = "docker-test-1.com"
+    docker_test_1.vm.network "private_network", ip: "192.168.11.105"
+    docker_test_1.vm.provider "virtualbox" do |v|
+      v.memory = 4096
+      v.cpus = 4
+      v.customize ["modifyvm", :id, "--nicpromisc1", "allow-all", "--nicpromisc2", "allow-all"]
+    end
+
+    config.vm.synced_folder "tools", "/root/tools"
+  end
+
 
 end
