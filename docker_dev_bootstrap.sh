@@ -18,7 +18,8 @@ apt-get -y update
 apt-get -y install linux-image-extra-$(uname -r)
 
 # Install packages for compiling CRIU
-apt-get install -y build-essential  asciidoc
+apt-get install -y build-essential  asciidoc bridge-utils
+
 apt-get install -y protobuf-c-compiler libprotobuf-c0-dev \
     libbsd-dev protobuf-compiler python-ipaddr pkg-config \
     protobuf-compiler libprotobuf-dev libprotoc-dev libaio-dev
